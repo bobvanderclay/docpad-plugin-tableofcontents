@@ -65,7 +65,7 @@ The plugin searches the document for the specified headers, returning an array o
 
 Similar to [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu), using a partial as a template for output is the best method.
 
-1. Create a `toc.html.eco` [partial](https://github.com/docpad/docpad-plugin-partials):
+Create a `toc.html.eco` [partial](https://github.com/docpad/docpad-plugin-partials):
 
 ```
 <% renderToc = (items) => %>
@@ -82,7 +82,7 @@ Similar to [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu),
 <%= renderToc @tocItems %>
 ```
 
-2. Include the partial in your template.
+Include the partial in your template.
 
 ```
 <div class="sidebar">
