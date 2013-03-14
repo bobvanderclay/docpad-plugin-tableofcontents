@@ -26,35 +26,35 @@ SRC=src
 
 # Watch and recompile our files
 dev:
-    $(COFFEE) -cbwo $(OUT) $(SRC)
+	$(COFFEE) -cbwo $(OUT) $(SRC)
 
 # Compile our files
 compile:
-    $(COFFEE) -cbo $(OUT) $(SRC)
+	$(COFFEE) -cbo $(OUT) $(SRC)
 
 # Clean up
 clean:
-    rm -Rf $(OUT) node_modules *.log
+	rm -Rf $(OUT) node_modules *.log
 
 # Install dependencies
 install:
-    npm install
+	npm install
 
 # Reset
 reset:
-    make clean
-    make install
-    make compile
+	make clean
+	make install
+	make compile
 
 # Ensure everything is ready for our tests (used by things like travis)
 test-prepare:
-    make reset
-    rm -Rf test/node_modules test/*out test/*.log
-    cd test; npm install
+	make reset
+	rm -Rf test/node_modules test/*out test/*.log
+	cd test; npm install
 
 # Run our tests
 test:
-    npm test
+	npm test
 
 
 # Ensure the listed commands always re-run and are never cached
