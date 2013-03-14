@@ -6,4 +6,4 @@ npm-debug.log
 test/out/
 test/render-out/
 
-#out/
+out/
