@@ -4,7 +4,6 @@ A [DocPad](https://docpad.org) plugin to generate tables of content from documen
 Note:
 
 I'm very new to DocPad, CoffeeScript, and Node in general, so please consider this plugin very beta.
-It's not quite ready for npm yet. Needs a couple more days of testing.
 
 Your questions, feedback, and (pull) requests are greatly appreciated.
 
