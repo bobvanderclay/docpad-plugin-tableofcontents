@@ -25,13 +25,13 @@ Sets document types to parse. Only html is supported currently.
 
 Default: `false`
 
-If `true`, only documents with the specific parameter set to true will generate tables of content.
+If **true**, only documents with the specified metadata parameter set as true will generate table of contents data.
 
 ### requiredMetadataField
 
 Default: `'toc'`
 
-If `requireMetadata` is set, which field will we look for in the document metadata.
+If `requireMetadata` is set, this is the field that must be set true in the document metadata.
 
 ### addHeaderIds
 
@@ -58,16 +58,15 @@ Depreciated, will be eventually determined from `headerSelectors`.
 
 ## Usage
 
-The plugin searches the document for the specified headers, returning an array of TableofcontentItem objects. This object has the following properties:
+The plugin searches the document for the specified headers, returning an array of `TableofcontentItem` objects. This object has the following properties:
 
-`text` Header text.
-`id` id of header, use to create links to page sections.
-`children` array of TableofcontentItem objects, with the next level of headers. 
+- `text` Header text.
+- `id` id of header, use to create links to page sections.
+- `children` array of `TableofcontentItem` objects, with the next level of headers. 
 
 Similar to [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu), using a partial as a template for output is the best method.
 
-
-Create a `toc.html.eco` [partial](https://github.com/docpad/docpad-plugin-partials):
+1. Create a `toc.html.eco` [partial](https://github.com/docpad/docpad-plugin-partials):
 
 ```
 <% renderToc = (items) => %>
@@ -84,7 +83,7 @@ Create a `toc.html.eco` [partial](https://github.com/docpad/docpad-plugin-partia
 <%= renderToc @tocItems %>
 ```
 
-Include the partial in your template.
+2. Include the partial in your template.
 
 ```
 <div class="sidebar">
