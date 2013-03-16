@@ -9,8 +9,9 @@ Your questions, feedback, and (pull) requests are greatly appreciated.
 
 ## Installation
 
-Run npm install --save docpad-plugin-tableofcontents command in your DocPad project root.
-
+```
+npm install --save docpad-plugin-tableofcontents
+```
 
 ## Configuration
 
