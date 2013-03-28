@@ -1,6 +1,6 @@
 {
     "name": "docpad-plugin-tableofcontents",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "DocPad plugin to automatically generate table of contents.",
     "homepage": "https://github.com/takitapart/docpad-plugin-tableofcontents",
     "keywords": [

@@ -37,12 +37,14 @@ module.exports = (BasePlugin) ->
             documentExtensions: ["html"]
 
             # Is a metadata field required?
-            requireMetadata: false
+            requireMetadata: true
             # If true, specify required metadata field. Set this field to true.
             requiredMetadataField: 'toc'
 
             # Add missing header id tags for ToC links.
             addHeaderIds: true
+            # When adding header ids, use this prefix.
+            headerIdPrefix: ''
             
             # List of header elements to search.
             headerSelectors: 'h2,h3,h4,h5'
@@ -74,7 +76,7 @@ module.exports = (BasePlugin) ->
                         # Build header id based on header title.
                         # TODO: Check for uniqueness.
                         headerText = header.innerHTML
-                        header.id = headerText.replace(/[^a-zA-Z0-9]/g,'-').replace(/^-/,'').replace(/-+/,'-')
+                        header.id = config.headerIdPrefix+headerText.replace(/[^a-zA-Z0-9]/g,'-').replace(/^-/,'').replace(/-+/,'-')
                         
                 # Move up and down tree as necessary.
                 if level > currentLevel # down
@@ -111,8 +113,12 @@ module.exports = (BasePlugin) ->
                 tableOfContents = document.tableOfContents? or []
                 document.set(tableOfContents: tableOfContents)
 
+                tocProcessed = document.tocProcessed? or false
+                # document.tocProcessed = tocProcessed
+                document.set(tocProcessed: tocProcessed)
+
                 if config.requireMetadata
-                    requiredMetadataFieldValue = document[config.requiredMetadataField]? or []
+                    requiredMetadataFieldValue = document[config.requiredMetadataField]? or false
                     document[config.requiredMetadataField] = requiredMetadataFieldValue
 
             # All done
@@ -130,8 +136,10 @@ module.exports = (BasePlugin) ->
             document = templateData.document
 
             # Handle
-            if file.type is 'document' and extension in config.documentExtensions
+            if file.type is 'document' and extension in config.documentExtensions and not document.tocProcessed
                 if not config.requireMetadata or document[config.requiredMetadataField]
+                    document.tocProcessed = true;
+
                     # Log
                     docpad.log('debug', locale.parsingTocHeaders+document.name)
 

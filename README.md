@@ -22,7 +22,7 @@ Sets document types to parse. Only html is supported currently.
 
 ### requireMetadata
 
-Default: `false`
+Default: `true`
 
 If **true**, only documents with the specified metadata parameter set as true will generate table of contents data.
 
@@ -37,6 +37,12 @@ If `requireMetadata` is set, this is the field that must be set true in the docu
 Default: `true`
 
 So that the table of contents may be generated with links to page sections, header ids should set. The plugin can automatically generate these ids, if one is not already present. It will not overwrite any id present.
+
+### headerIdPrefix
+
+Default: ``
+
+Value will be added as a prefix to the automatically generated header ids.
 
 ### headerSelectors
 
