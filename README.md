@@ -102,7 +102,6 @@ Include the partial in your template.
 ## Limitations, Known Bugs
 
 - This plugin only works with html. I would like to eventually add parsing of additional document types.
-- This plugin runs each time an html document is rendered. This may happen several times, as partials and layouts are applied, and depending on your `headerSelectors`, the table of contents may be updated. I use `tableOfContents` in a partial, so updates on later renders do not affect me. This may be an issue or feature depending on how you use the plugin. I'd love some feedback or help with this.
 - Need to enforce uniqueness in header ids. 
 - Selected elements are not filtered / validated / checked.
 - Determine `rootHeaderLevel` from `headerSelectors`.
